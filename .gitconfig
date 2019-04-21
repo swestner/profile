@@ -1,0 +1,62 @@
+[core]
+	editor = 'C:\\Program Files (x86)\\Notepad++\\notepad++.exe' -multiInst -notabbar -nosession -noPlugins
+[difftool "p4merge"]
+	cmd = \"C:\\Program Files\\Perforce\\p4merge.exe\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "p4merge"]
+	cmd = \"C:\\Program Files\\Perforce\\p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
+[diff]
+	tool = p4merge
+	guitool = p4merge
+[difftool]
+	prompt = false
+[merge]
+	tool = p4merge
+
+[push]
+	default = simple
+[help]
+	autocorrect = 1
+[alias]
+	l2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	co = checkout
+	a = add
+	l = log
+	last = log -1 HEAD
+	ca = commit --amend -C HEAD
+	d = diff
+	br = branch
+	dc = diff --cached
+	today = log --stat --since='1 day ago' --graph --pretty=oneline --abbrev-commit --date=relative
+	unstage = reset HEAD --
+	s = status
+	who = shortlog -s -e --no-merges --
+	l1 = log --pretty=format:'%s * %an, %ar' --graph
+	standup = log --since yesterday --oneline --author 'SYSTEM'
+	stats = diff --stat
+	up = !git fetch origin && git rebase origin/master
+	done = !git fetch && git rebase origin/master && git checkout master && git merge @{-1} && git push
+	st = status
+	c = commit -m
+	amend = commit --amend
+	wdiff = diff --word-diff
+	aliases = config --get-regexp alias
+	pp = !git pull && git push
+	cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
+	ci = commit
+	ir = !git rebase -i origin/master
+	l3 = log --pretty=format:'%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]' --decorate
+	undo = reset head~
+	hist = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) [%an]%Creset' --graph --abbrev-commit --date=relative
+	me = log --author='swestner' --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	archive = tag
+	fdiff = diff --name-status 
+	start = !git checkout master && git pull origin master && git checkout
+	pr = !hub pull-request
+	
+
+[user]
+	name = swestner
+	email = swestner@gmail.com
+[include]
+	path = ~/.gitconfig.reflow

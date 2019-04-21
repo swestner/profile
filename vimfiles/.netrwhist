@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='C:\workspace\CC.Common\packages'
+let g:netrw_dirhist_2='C:\workspace\cc3test\build_tools'
+let g:netrw_dirhist_3='C:\Users\steve.westner\vimfiles\.git'
+let g:netrw_dirhist_4='C:\workspace\CareerCruising_App\.git'
+let g:netrw_dirhist_5='C:\workspace\csake\csake'
+let g:netrw_dirhist_6='C:/Users/steve.westner/vimfiles'
+let g:netrw_dirhist_7='C:\Users\steve.westner\vimfiles\bundle\Vundle.vim'
