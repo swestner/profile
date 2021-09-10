@@ -1,5 +1,8 @@
-﻿import-module posh-docker
+﻿Import-Module posh-docker
+Import-Module posh-git
 Import-Module persistenthistory
+
+
 
 set-alias npp "\Program Files\Notepad++\notepad++.exe"
 set-alias ex explorer.exe
@@ -149,14 +152,14 @@ function install-toggl{
 			$env:path += ";C:\tools\python2;C:\tools\python2\Scripts"
 			cinst pip
 			pip install iso8601 pytz requests python-dateutil
-			python /tools/toggl-cli/toggl.py > $null
+			python /tools/toggl-cli/toggl/toggl.py > $null
 			write-output "dont forget to update ~/.togglrc"
 
 			if($env:path -notmatch '/tools/toggl-cli'){
 				add-path "/tools/toggl-cli"
 			}
-#new-item "/tools/toggl-cli/tg.bat" -force | out-null
-		set-content /tools/toggl-cli/tg.bat "@echo off`npython /tools/toggl-cli/toggl.py %*" -Encoding ASCII 
+		#new-item "/tools/toggl-cli/tg.bat" -force | out-null
+		set-content /tools/toggl-cli/tg.bat "@echo off`npython /tools/toggl-cli/toggl/toggl.py %*" -Encoding ASCII 
 	}
 
 }
